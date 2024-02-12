@@ -1,22 +1,16 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonText } from '@ionic/react';
+import type { WithTranslation } from 'react-i18next';
+import { I18nScope } from '../libs/i18n/token';
+import { Roller, withIonPageLayout, withPage, withTranslation } from '../libs/roll/mod';
 
-const Tab2: React.FC = () => (
-  <IonPage>
-    <IonHeader>
-      <IonToolbar>
-        <IonTitle>Tab 2</IonTitle>
-      </IonToolbar>
-    </IonHeader>
-    <IonContent fullscreen>
-      <IonHeader collapse="condense">
-        <IonToolbar>
-          <IonTitle size="large">Tab 2</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <ExploreContainer name="Tab 2 page" />
-    </IonContent>
-  </IonPage>
-);
+function DailyPage() {
+  return <IonText is="h1">Daily(WIP)</IonText>;
+}
 
-export default Tab2;
+type Props = object;
+
+export default new Roller()
+  .roll(withPage('/daily'))
+  .roll<WithTranslation>(withTranslation(I18nScope.HOME))
+  .roll(withIonPageLayout('', { contentClassName: 'ion-padding', withToolbar: false }))
+  .around<Props>(DailyPage);
