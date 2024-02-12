@@ -7,10 +7,8 @@ function DailyPage() {
   return <IonText is="h1">Daily(WIP)</IonText>;
 }
 
-type Props = object;
-
 export default new Roller()
   .roll(withPage('/daily'))
   .roll<WithTranslation>(withTranslation(I18nScope.HOME))
   .roll(withIonPageLayout('', { contentClassName: 'ion-padding', withToolbar: false }))
-  .around<Props>(DailyPage);
+  .around(DailyPage);
