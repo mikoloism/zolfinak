@@ -18,10 +18,12 @@ import '@ionic/react/css/padding.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 /* Theme variables */
+import { initilizeThemeSettings } from './libs/themes/mod';
 import './theme/variables.css';
 
 setupIonicReact();
 initializeLanguageSettings();
+initilizeThemeSettings();
 
 const App: React.FC = () => {
   return (
