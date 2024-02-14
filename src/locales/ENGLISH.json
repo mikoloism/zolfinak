@@ -17,5 +17,10 @@
     "about_link_text": "About",
     "language_label": "Language",
     "change_language_toast": "Setup {{lang}} language."
+  },
+  "daily": {
+    "picker_confirm_button": "Confirm",
+    "picker_cancel_button": "Cancel",
+    "picker_title": "select date"
   }
 }
