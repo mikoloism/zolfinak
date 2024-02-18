@@ -14,8 +14,10 @@
     "prettier": "prettier \"**/*.{ts,tsx}\"",
     "eslint": "eslint . --ext .ts,.tsx",
     "android.list": "ionic capacitor run android --list",
+    "android.open": "npx cap open android",
     "android.prebuild": "ionic build && npx cap sync && npx cap copy",
-    "android.start": "npm run android.prebuild && npx cap run android --external"
+    "android.start.only": "npx cap run android --external",
+    "android.start": "npm run android.prebuild && npm run android.start.only"
   },
   "dependencies": {
     "@capacitor/android": "^5.7.0",
