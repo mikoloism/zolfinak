@@ -80,16 +80,11 @@
   },
   "description": "An Ionic project",
   "eslintConfig": {
-    "extends": [
-      "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended",
-      "prettier",
-      "@ionic/eslint-config/recommended"
-    ],
     "parser": "@typescript-eslint/parser",
     "plugins": [
       "@typescript-eslint",
-      "prettier"
+      "prettier",
+      "import"
     ],
     "parserOptions": {
       "project": [
@@ -97,10 +92,39 @@
         "./tsconfig.node.json"
       ]
     },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "prettier",
+      "prettier/@typescript-eslint",
+      "plugin:import/typescript"
+    ],
     "rules": {
       "prettier/prettier": "error",
-      "@typescript-eslint/explicit-function-return-type": "off",
+      "no-fallthrough": "off",
+      "no-constant-condition": "off",
+      "@typescript-eslint/no-this-alias": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/consistent-generic-constructors": "error",
+      "@typescript-eslint/adjacent-overload-signatures": "warn",
+      "@typescript-eslint/consistent-type-assertions": "error",
+      "@typescript-eslint/unified-signatures": [
+        "warn",
+        {
+          "ignoreDifferentlyNamedParameters": true
+        }
+      ],
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          "prefer": "type-imports",
+          "fixStyle": "inline-type-imports"
+        }
+      ],
+      "@typescript-eslint/prefer-for-of": "error",
+      "@typescript-eslint/prefer-optional-chain": "error",
+      "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/prefer-readonly": "error",
       "@typescript-eslint/no-explicit-any": [
         "error",
@@ -115,25 +139,14 @@
           "readonly": "array-simple"
         }
       ],
-      "@typescript-eslint/consistent-generic-constructors": "error",
-      "@typescript-eslint/adjacent-overload-signatures": "warn",
-      "@typescript-eslint/unified-signatures": [
-        "warn",
-        {
-          "ignoreDifferentlyNamedParameters": true
-        }
-      ],
-      "@typescript-eslint/consistent-type-imports": [
-        "error",
-        {
-          "prefer": "type-imports",
-          "fixStyle": "inline-type-imports"
-        }
-      ],
-      "import/newline-after-import": "error",
+      "import/first": "error",
       "import/order": [
         "error",
         {
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": false
+          },
           "groups": [
             "builtin",
             "external",
@@ -141,9 +154,12 @@
             "sibling",
             "index"
           ],
-          "newlines-between": "never"
+          "newlines-between": "ignore"
         }
-      ]
+      ],
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error",
+      "import/no-mutable-exports": "error"
     },
     "ignorePatterns": [
       "node_modules",
