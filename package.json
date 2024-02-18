@@ -17,7 +17,8 @@
     "android.open": "npx cap open android",
     "android.prebuild": "ionic build && npx cap sync && npx cap copy",
     "android.start.only": "npx cap run android --external",
-    "android.start": "npm run android.prebuild && npm run android.start.only"
+    "android.start": "npm run android.prebuild && npm run android.start.only",
+    "android.log": "adb shell \"logcat\" | grep -i 'Capacitor'"
   },
   "dependencies": {
     "@capacitor/android": "^5.7.0",
