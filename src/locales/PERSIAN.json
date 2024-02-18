@@ -17,5 +17,10 @@
     "about_link_text": "درباره ما",
     "language_label": "زبان‌ها",
     "change_language_toast": "زبان به {{lang}} تغییر یافت."
+  },
+  "daily": {
+    "picker_confirm_button": "ذخیره",
+    "picker_cancel_button": "لغو",
+    "picker_title": "لطفا یک تاریخ را انتخاب کنید"
   }
 }

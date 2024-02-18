@@ -10,6 +10,11 @@ export type I18nToken = {
     language_label: string;
     change_language_toast: string;
   };
+  daily: {
+    picker_confirm_button: string;
+    picker_cancel_button: string;
+    picker_title: string;
+  };
   _info_: I18nLocaleInfo;
   app: object;
 };
@@ -27,6 +32,7 @@ export const I18nScope: I18nScope = {
   HOME: 'home',
   SETTINGS: 'settings',
   APP: 'app',
+  DAILY: 'daily',
   _INFO_: '_info_',
 } as const;
 
