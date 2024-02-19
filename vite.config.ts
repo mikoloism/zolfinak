@@ -7,7 +7,12 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), legacy()],
-  build: { outDir: 'www' },
+  build: {
+    outDir: 'www',
+    rollupOptions: {
+      external: [/^intl$/, /^core-js\/.*$/],
+    },
+  },
   test: {
     globals: true,
     environment: 'jsdom',
