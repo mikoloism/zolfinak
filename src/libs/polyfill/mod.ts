@@ -1,6 +1,10 @@
-import 'core-js/core';
-import 'core-js/es5';
-import 'core-js/es6';
-import 'core-js/es7';
-import 'core-js/js';
-import 'intl';
+// ---
+// --- Core API
+// ---
+import 'core-js/modules/es.array.iterator.js';
+import 'core-js/modules/es.promise.js';
+import 'core-js/modules/es.regexp.exec.js';
+import 'core-js/modules/es.string.replace.js';
+import 'core-js/modules/esnext.string.replace-all.js';
+import 'core-js/modules/web.dom-collections.iterator.js';
+
