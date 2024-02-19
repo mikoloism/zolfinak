@@ -9,9 +9,6 @@ export default defineConfig({
   plugins: [react(), legacy()],
   build: {
     outDir: 'www',
-    rollupOptions: {
-      external: [/^intl$/, /^core-js\/.*$/],
-    },
   },
   test: {
     globals: true,
