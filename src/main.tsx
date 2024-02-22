@@ -1,3 +1,4 @@
+import 'virtual:uno.css';
 import './libs/polyfill/mod';
 
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
