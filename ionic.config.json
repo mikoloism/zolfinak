@@ -4,5 +4,5 @@
     "capacitor": {}
   },
   "type": "react-vite",
-  "npmClient": "npm"
+  "npmClient": "pnpm"
 }
