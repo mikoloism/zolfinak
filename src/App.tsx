@@ -26,8 +26,8 @@ import { initilizeThemeSettings } from './libs/themes/mod';
 import './theme/variables.css';
 
 setupIonicReact();
-initializeLanguageSettings();
-initilizeThemeSettings();
+void initializeLanguageSettings();
+void initilizeThemeSettings();
 
 const App: React.FC = () => {
   return (

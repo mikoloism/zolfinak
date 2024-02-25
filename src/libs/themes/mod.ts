@@ -6,7 +6,7 @@ export function initilizeThemeSettings(): void {
   const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
   function onPrefersColorScheme(status: MediaQueryListEvent): void {
-    StatusBar.setStyle({
+    void StatusBar.setStyle({
       style: status.matches ? Style.Dark : Style.Light,
     });
   }
@@ -24,7 +24,6 @@ export function initilizeThemeSettings(): void {
   } catch {
     try {
       trySafari();
-      // eslint-disable-next-line no-empty
     } catch {}
   }
 }

@@ -1,4 +1,4 @@
-export type I18nToken = {
+export interface I18nToken {
   home: {
     hero_title: string;
     inline_search_placeholder: string;
@@ -17,7 +17,7 @@ export type I18nToken = {
   };
   _info_: I18nLocaleInfo;
   app: object;
-};
+}
 
 export interface I18nLocaleInfo {
   english_name: string;

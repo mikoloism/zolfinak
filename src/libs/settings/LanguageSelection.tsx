@@ -7,12 +7,12 @@ import { SelectOption } from './Option';
 function LanguageSelection({ t, i18n }: WithTranslation): JSX.Element {
   return (
     <IonItem>
-      <IonIcon slot="start" icon={languageOutline} />
+      <IonIcon icon={languageOutline} slot="start" />
       <IonSelect
         label={t('language_label')}
         labelPlacement="start"
+        onIonChange={(event) => void changeLanguage(event.target.value as string)}
         value={i18n.language}
-        onIonChange={(event) => changeLanguage(event.target.value)}
       >
         <SelectOption lang={LanguageName.ENGLISH} />
         <SelectOption lang={LanguageName.PERSIAN} />

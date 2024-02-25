@@ -10,7 +10,7 @@ export const LANGUAGE_STORAGE_KEY = 'z-language';
 export async function initializeLanguageSettings(): Promise<void> {
   const last_lang = await getLastLang();
   if (last_lang) {
-    changeLanguageSilent(last_lang);
+    void changeLanguageSilent(last_lang);
     return;
   }
 
@@ -24,11 +24,7 @@ export async function initializeLanguageSettings(): Promise<void> {
 
 export async function getSystemLang(): Promise<string | void> {
   if (typeof navigator !== 'undefined') {
-    return (
-      navigator['language'] ??
-      navigator['languages'][0] ??
-      navigator['userLangauge' as keyof Navigator]
-    )?.valueOf();
+    return (navigator.language ?? navigator.languages[0] ?? navigator['userLangauge' as keyof Navigator])?.valueOf();
   }
 
   const iso_code = await Device.getLanguageCode();

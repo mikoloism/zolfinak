@@ -11,8 +11,8 @@ export type Roll<In extends object, Out = RollOut<In>> =
   | HighComponent<In>;
 
 export interface Rollable<In extends object, Out> {
-  roll<T extends object = In, P extends object = In & T>(rolled: Roll<P, Out>): Rollable<P, Out>;
-  around<T>(Component: React.ComponentType<In & T>): React.ComponentType<Out>;
+  roll: <T extends object = In, P extends object = In & T>(rolled: Roll<P, Out>) => Rollable<P, Out>;
+  around: <T>(Component: React.ComponentType<In & T>) => React.ComponentType<Out>;
 }
 
 export type HighComponent<P extends object, C extends React.ComponentType<P> = React.ComponentType<P>> = (

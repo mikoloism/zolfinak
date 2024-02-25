@@ -44,6 +44,7 @@ const HomeToolbar = (): JSX.Element => (
   <IonToolbar>
     <IonButtons slot="end">
       <IonButton
+        color="light"
         style={{
           backgroundColor: 'white',
           borderRadius: '4pt',
@@ -51,9 +52,8 @@ const HomeToolbar = (): JSX.Element => (
           height: '2em',
           margin: '1em 1em',
         }}
-        color="light"
       >
-        <IonIcon size="small" icon={personOutline} />
+        <IonIcon icon={personOutline} size="small" />
       </IonButton>
     </IonButtons>
     <IonTitle>

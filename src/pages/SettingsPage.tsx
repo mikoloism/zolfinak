@@ -33,7 +33,7 @@ const SettingsPage: React.FC<WithTranslation> = ({ t }) => (
       <IonList>
         <SettingsLanguageSelection />
         <IonItem routerLink="/settings/about">
-          <IonIcon slot="start" icon={informationCircleOutline} />
+          <IonIcon icon={informationCircleOutline} slot="start" />
           <IonText>{t('about_link_text')}</IonText>
         </IonItem>
         <SettingsBuildInformation />
@@ -45,8 +45,8 @@ const SettingsPage: React.FC<WithTranslation> = ({ t }) => (
 function SettingsBuildInformation() {
   const [device, setDeviceInfo] = React.useState<DeviceInfo>();
 
-  React.useEffect(function onMount() {
-    Device.getInfo().then(function subscribeInfo(deviceInfo) {
+  React.useEffect(() => {
+    void Device.getInfo().then((deviceInfo) => {
       setDeviceInfo(() => deviceInfo);
     });
   }, []);
