@@ -11,7 +11,7 @@ declare module 'i18next' {
   }
 }
 
-i18n.use(initReactI18next).init({
+void i18n.use(initReactI18next).init({
   resources,
   ns: I18nNSList,
   defaultNS: DEFAULT_I18N_NAMESPACE,
