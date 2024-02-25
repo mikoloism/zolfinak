@@ -1,4 +1,4 @@
-import { intlFormat, type IntlFormatFormatOptions } from 'date-fns';
+import { type IntlFormatFormatOptions, intlFormat } from 'date-fns';
 import { Store as PullstateStore } from 'pullstate';
 import { getLocaleCode } from '../i18n/helpers';
 import { i18n } from '../i18n/i18n';
@@ -10,30 +10,27 @@ const FULL_DATE_FORMAT: IntlFormatFormatOptions = {
   year: 'numeric',
 };
 
-const dateStore = new PullstateStore<DateStore>(function initilizeStore() {
+const dateStore = new PullstateStore<DateStore>(() => {
   return { date: new Date() };
 });
 
-function useDateStore(): UseDateStore;
-function useDateStore(newDate: Date): void;
-function useDateStore(newDate?: Date): UseDateStore | void {
-  if (typeof newDate === 'undefined') {
-    const stored_date = dateStore.useState(($) => $.date);
-    const formatted_date = intlFormat(stored_date, FULL_DATE_FORMAT, {
-      locale: getLocaleCode(i18n.language),
-    });
+function useDateStore(): UseDateStore {
+  const stored_date = dateStore.useState(($) => $.date);
+  const formatted_date = intlFormat(stored_date, FULL_DATE_FORMAT, {
+    locale: getLocaleCode(i18n.language),
+  });
 
-    return {
-      date: stored_date,
-      formatted: formatted_date,
-    };
-  }
-
-  return dateStore.update(($) =>
-    Object.assign($, {
-      date: newDate,
-    }),
-  );
+  return {
+    update: function update(newDate) {
+      return dateStore.update(($) =>
+        Object.assign($, {
+          date: newDate,
+        }),
+      );
+    },
+    date: stored_date,
+    formatted: formatted_date,
+  };
 }
 
 interface DateStore {
@@ -42,6 +39,7 @@ interface DateStore {
 
 interface UseDateStore extends DateStore {
   formatted: string;
+  update: (newDate: Date) => void;
 }
 
 export { dateStore, useDateStore };
