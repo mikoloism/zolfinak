@@ -67,6 +67,7 @@
     "styled-components": "6.1.8"
   },
   "devDependencies": {
+    "@antfu/ni": "0.21.12",
     "@capacitor/assets": "3.0.4",
     "@capacitor/cli": "5.7.0",
     "@ionic/cli": "7.2.0",

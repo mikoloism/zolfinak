@@ -130,6 +130,9 @@ dependencies:
     version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
+  '@antfu/ni':
+    specifier: 0.21.12
+    version: 0.21.12
   '@capacitor/assets':
     specifier: 3.0.4
     version: 3.0.4(@types/node@20.11.20)(typescript@5.3.3)
@@ -269,6 +272,11 @@ packages:
     dependencies:
       execa: 5.1.1
       find-up: 5.0.0
+    dev: true
+
+  /@antfu/ni@0.21.12:
+    resolution: {integrity: sha512-2aDL3WUv8hMJb2L3r/PIQWsTLyq7RQr3v9xD16fiz6O8ys1xEyLhhTOv8gxtZvJiTzjTF5pHoArvRdesGL1DMQ==}
+    hasBin: true
     dev: true
 
   /@antfu/utils@0.7.7:
