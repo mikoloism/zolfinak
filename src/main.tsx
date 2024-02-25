@@ -1,4 +1,6 @@
 import 'virtual:uno.css';
+import '@unocss/reset/tailwind.css';
+import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import './libs/polyfill/mod';
 
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
