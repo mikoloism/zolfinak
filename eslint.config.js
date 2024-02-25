@@ -6,7 +6,7 @@ export default antfu({
 
   typescript: {
     tsconfigPath: ['./tsconfig.json', './tsconfig.node.json'],
-    parserOptions: { project: ['./tsconfig.json', './tsconfig.node.json', './vite.config.ts', './eslint.config.js'] },
+    parserOptions: { project: ['./tsconfig.json', './tsconfig.node.json'] },
     overrides: {
       'ts/no-this-alias': 'off',
       'ts/explicit-module-boundary-types': 'off',
@@ -17,6 +17,7 @@ export default antfu({
       'ts/prefer-optional-chain': 'error',
       'ts/explicit-function-return-type': 'off',
       'ts/prefer-readonly': 'error',
+      'ts/no-redeclare': 'off',
       'ts/no-explicit-any': ['error', { ignoreRestArgs: true }],
       'ts/unified-signatures': ['warn', { ignoreDifferentlyNamedParameters: true }],
       'ts/array-type': ['error', { default: 'array-simple', readonly: 'array-simple' }],
@@ -65,6 +66,9 @@ export default antfu({
   ],
 
   rules: {
+    'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+    'prefer-arrow-callback': ['warn', { allowNamedFunctions: true, allowUnboundThis: true }],
+    'object-shorthand': ['error', 'properties' /* { avoidQuotes: true, avoidExplicitReturnArrows: false } */],
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
@@ -77,7 +81,17 @@ export default antfu({
         alphabetize: {
           order: 'asc',
           caseInsensitive: false,
+          orderImportKind: 'asc',
         },
+      },
+    ],
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: true,
+        ignoreMemberSort: true,
+        ignoreDeclarationSort: true,
+        allowSeparatedGroups: true,
       },
     ],
   },
