@@ -1,25 +1,33 @@
-export enum LanguageName {
+enum LanguageName {
   ENGLISH = 'ENGLISH',
   PERSIAN = 'PERSIAN',
-  FARSI = PERSIAN,
-  DEFAULT = ENGLISH,
 }
 
-const displayName = new Intl.DisplayNames('en', {
-  type: 'language',
-  fallback: 'code',
-  style: 'long',
-  languageDisplay: 'standard',
-});
+namespace LanguageName {
+  /* aliases */
+  export const FARSI: LanguageName.PERSIAN = LanguageName.PERSIAN;
+  export const DEFAULT: LanguageName = LanguageName.ENGLISH;
 
-export function resolveLanguageName(langtag: string): LanguageName {
-  if (langtag.toUpperCase() in LanguageName) return LanguageName[langtag.toUpperCase() as LanguageNameKey];
+  /* types */
+  export type Actual = `${LanguageName}`;
 
-  // with BCP47
-  const name = displayName.of(langtag) ?? 'English (US)';
-  const key = name.split(' ')[0].toUpperCase();
-  return LanguageName[key as LanguageNameKey];
+  /* local block */
+  const displayName = new Intl.DisplayNames('en', {
+    type: 'language',
+    fallback: 'code',
+    style: 'long',
+    languageDisplay: 'standard',
+  });
+
+  /* traits */
+  export function resolve(langtag: string): LanguageName {
+    if (langtag.toUpperCase() in LanguageName) return LanguageName[langtag.toUpperCase() as LanguageName.Actual];
+
+    // with BCP47
+    const name = displayName.of(langtag) ?? 'English (US)';
+    const key = name.split(' ')[0].toUpperCase();
+    return LanguageName[key as LanguageName.Actual];
+  }
 }
 
-export type LanguageNameKey = keyof typeof LanguageName;
-export const DEFAULT_LANG_NAME: LanguageName = LanguageName.DEFAULT;
+export { LanguageName };

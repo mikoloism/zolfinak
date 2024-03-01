@@ -2,7 +2,7 @@ import { Device } from '@capacitor/device';
 import { Preferences } from '@capacitor/preferences';
 import { Toast } from '@capacitor/toast';
 import { i18n } from './i18n';
-import { DEFAULT_LANG_NAME, resolveLanguageName, type LanguageName } from './languages';
+import { LanguageName } from './languages';
 import { I18nScope } from './token';
 
 export const LANGUAGE_STORAGE_KEY = 'z-language';
@@ -19,7 +19,7 @@ export async function initializeLanguageSettings(): Promise<void> {
     return changeLanguage(sys_lang);
   }
 
-  return changeLanguage(DEFAULT_LANG_NAME);
+  return changeLanguage(LanguageName.DEFAULT);
 }
 
 export async function getSystemLang(): Promise<string | void> {
@@ -44,7 +44,7 @@ export async function getLastLang(): Promise<string | null> {
 }
 
 export async function changeLanguageSilent(langtag: string | LanguageName): Promise<LanguageName> {
-  const lang = resolveLanguageName(langtag.valueOf());
+  const lang = LanguageName.resolve(langtag.valueOf());
   await Preferences.set({ key: LANGUAGE_STORAGE_KEY, value: lang });
   await i18n.changeLanguage(lang);
   await updateTextDirection(lang);
@@ -74,7 +74,7 @@ export function getLocaleInfo(lang: LanguageName) {
 }
 
 export function getLocaleCode(langtag: string | LanguageName) {
-  const lang = resolveLanguageName(langtag);
+  const lang = LanguageName.resolve(langtag);
   const option = { ns: I18nScope._INFO_, lng: lang };
   const ISO_639_1 = i18n.t('iso_639_1', option);
   return ISO_639_1.toLowerCase();
