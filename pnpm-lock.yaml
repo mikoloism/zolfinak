@@ -131,6 +131,9 @@ dependencies:
   styled-components:
     specifier: 6.1.8
     version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
+  timezone-enum:
+    specifier: 1.0.4
+    version: 1.0.4
 
 devDependencies:
   '@antfu/eslint-config':
@@ -9943,6 +9946,10 @@ packages:
   /through@2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
     dev: true
+
+  /timezone-enum@1.0.4:
+    resolution: {integrity: sha512-CihBHcf/JZEtDF1xSDAXPHbfjpOhRxUtE4dhbYqeI8Zuy1zq79AgQ5hMkf38uA4WZb24U3VHzKcOmmcvfsefXw==}
+    dev: false
 
   /tiny-invariant@1.3.2:
     resolution: {integrity: sha512-oLXoWt7bk7SI3REp16Hesm0kTBTErhk+FWTvuujYMlIbX42bb3yLN98T3OyzFNkZ3WAjVYDL4sWykCR6kD2mqQ==}

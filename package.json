@@ -64,7 +64,8 @@
     "react-modern-calendar-datepicker": "3.1.6",
     "react-router": "5.3.4",
     "react-router-dom": "5.3.4",
-    "styled-components": "6.1.8"
+    "styled-components": "6.1.8",
+    "timezone-enum": "1.0.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.6.4",
