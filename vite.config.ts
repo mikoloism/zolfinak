@@ -39,7 +39,14 @@ export default defineConfig({
       presets: [
         // keep-order
         presetUno(),
-        presetWebFonts({ provider: 'google' }),
+        presetWebFonts({
+          provider: 'google',
+          fonts: {
+            sans: 'DM Sans',
+            serif: 'DM Serif Display',
+            mono: 'DM Mono',
+          },
+        }),
         presetTypography(),
       ],
       transformers: [
