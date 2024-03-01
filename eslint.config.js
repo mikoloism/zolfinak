@@ -18,6 +18,8 @@ export default antfu({
       'ts/explicit-function-return-type': 'off',
       'ts/prefer-readonly': 'error',
       'ts/no-redeclare': 'off',
+      'ts/no-namespace': 'off',
+      'ts/prefer-literal-enum-member': ['warn', { allowBitwiseExpressions: false }],
       'ts/no-explicit-any': ['error', { ignoreRestArgs: true }],
       'ts/unified-signatures': ['warn', { ignoreDifferentlyNamedParameters: true }],
       'ts/array-type': ['error', { default: 'array-simple', readonly: 'array-simple' }],
@@ -30,6 +32,7 @@ export default antfu({
       'react/prop-types': 'off',
       'react/jsx-sort-props': 'error',
       'react-refresh/only-export-components': 'off',
+      'jsx-quotes': ['error', 'prefer-double'],
     },
   },
 
@@ -74,5 +77,6 @@ export default antfu({
     'import/no-duplicates': 'error',
     'import/no-mutable-exports': 'error',
     'sort-imports': ['off'],
+    'import/order': ['off'],
   },
 });
