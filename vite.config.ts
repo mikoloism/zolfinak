@@ -1,5 +1,7 @@
 /// <reference types="vitest/config" />
 
+import path from 'node:path';
+
 import presetTypography from '@unocss/preset-typography';
 import presetUno from '@unocss/preset-uno';
 import presetWebFonts from '@unocss/preset-web-fonts';
@@ -13,11 +15,22 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@/': `${path.resolve(__dirname, 'src')}/`,
+      'lib/': `${path.resolve(__dirname, 'src', 'libs')}/`,
+      'libs/': `${path.resolve(__dirname, 'src', 'libs')}/`,
+    },
+  },
+
   plugins: [
     react(),
+
     legacy(),
+
     unocss({
       mode: 'global',
+
       content: {
         pipeline: {
           include: [/\.(vue|svelte|[jt]sx|mdx?|astro|html)($|\?)/, 'src/**/*.{js,ts}'],
@@ -36,9 +49,11 @@ export default defineConfig({
       ],
     }),
   ],
+
   build: {
     outDir: 'www',
   },
+
   test: {
     globals: true,
     environment: 'jsdom',
