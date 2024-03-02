@@ -20,7 +20,6 @@ enum Calendar {
   HEBREW = 'hebrew',
   INDIAN = 'indian',
   ISLAMIC = 'islamic',
-  ISLAMICC = 'islamicc',
   JAPANESE = 'japanese',
   PERSIAN = 'persian',
   // eslint-disable-next-line ts/prefer-literal-enum-member
