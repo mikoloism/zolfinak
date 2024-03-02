@@ -1,5 +1,5 @@
-import { DateTime } from 'luxon';
-import type { CalendarSystem, DaysInWeek, WeeksInMonth } from './calendar';
+import { DateTime, Interval } from 'luxon';
+import type { CalendarSystem, DaysInMonth } from './calendar';
 
 export class PersianCalendar implements CalendarSystem {
   #today: DateTime;
@@ -20,21 +20,10 @@ export class PersianCalendar implements CalendarSystem {
     this.#today = DateTime.fromJSDate(date);
   }
 
-  public generate = (): WeeksInMonth => {
+  public generate = (): DaysInMonth => {
     const startPointOfMonth: DateTime = DateTime.fromJSDate(this.today.toJSDate()).startOf('month').startOf('week');
     const endPointOfMonth: DateTime = DateTime.fromJSDate(this.today.toJSDate()).endOf('month').endOf('week');
-
-    let crawlPoint = startPointOfMonth.minus({ day: 2 });
-    let weeksInMonth: WeeksInMonth = [];
-    while (crawlPoint.hasSame(endPointOfMonth, 'day') === false) {
-      let daysInWeek: DaysInWeek = [];
-      for (let index = 0; index < 7; index++) {
-        crawlPoint = crawlPoint.plus({ day: 1 });
-        daysInWeek = daysInWeek.concat(crawlPoint);
-      }
-      weeksInMonth = weeksInMonth.concat(daysInWeek);
-    }
-
-    return weeksInMonth;
+    const daysInMonth: DaysInMonth = Interval.fromDateTimes(startPointOfMonth, endPointOfMonth).splitBy({ days: 1 });
+    return daysInMonth;
   };
 }

@@ -1,14 +1,13 @@
-import type { DateTime } from 'luxon';
+import type { DateTime, Interval } from 'luxon';
 
 import { globalSetting } from 'lib/settings/global';
 import { GregorianCalendar } from './gregorian';
 import { PersianCalendar } from './persian';
 
-export type DaysInWeek = DateTime[];
-export type WeeksInMonth = DaysInWeek[];
+export type DaysInMonth = Array<Interval<boolean>>;
 export interface CalendarSystem {
   today: Date | DateTime;
-  generate: () => WeeksInMonth;
+  generate: () => DaysInMonth;
 }
 
 enum Calendar {
@@ -29,7 +28,7 @@ enum Calendar {
 }
 
 namespace Calendar {
-  export function generateOf(today?: Date): WeeksInMonth {
+  export function generateOf(today?: Date): DaysInMonth {
     let calendar: CalendarSystem;
     switch (globalSetting.calendarType.get()) {
       case Calendar.GREGORIAN:
