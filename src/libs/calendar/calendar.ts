@@ -11,7 +11,7 @@ export interface CalendarSystem {
 }
 
 enum Calendar {
-  GREGORIAN = 'gregorian',
+  GREGORIAN = 'gregory',
   BUDDHIST = 'buddhist',
   CHINESE = 'chinese',
   COPTIC = 'coptic',
