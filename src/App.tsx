@@ -2,6 +2,8 @@ import { IonApp, IonIcon, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, set
 import { IonReactRouter } from '@ionic/react-router';
 import { albumsOutline, appsOutline, settingsOutline } from 'ionicons/icons';
 import React from 'react';
+
+/* Relative Imports */
 import { AppRouter } from './App.router';
 import { I18nextProvider, initializeLanguageSettings } from './libs/i18n/mod';
 
