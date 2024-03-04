@@ -1,29 +1,38 @@
-import { DateTime, Interval } from 'luxon';
-import type { CalendarSystem, DaysInMonth } from './calendar';
+import PersianDate from 'persian-date';
+import type { CalendarSystem, DaysInMonth, DaysInWeek, WeeksInMonth } from './calendar';
 
 export class PersianCalendar implements CalendarSystem {
-  #today: DateTime;
+  #today: PersianDate;
 
   public constructor(today?: Date) {
     if (typeof today === 'undefined') {
-      this.#today = DateTime.now();
+      this.#today = new PersianDate();
     } else {
-      this.#today = DateTime.fromJSDate(today);
+      this.#today = new PersianDate(today);
     }
   }
 
-  public get today(): DateTime {
-    return this.#today;
+  public get today(): PersianDate {
+    return this.#today.clone();
   }
 
   public set today(date: Date) {
-    this.#today = DateTime.fromJSDate(date);
+    this.#today = new PersianDate(date);
   }
 
-  public generate = (): DaysInMonth => {
-    const startPointOfMonth: DateTime = DateTime.fromJSDate(this.today.toJSDate()).startOf('month').startOf('week');
-    const endPointOfMonth: DateTime = DateTime.fromJSDate(this.today.toJSDate()).endOf('month').endOf('week');
-    const daysInMonth: DaysInMonth = Interval.fromDateTimes(startPointOfMonth, endPointOfMonth).splitBy({ days: 1 });
+  public generate = (): DaysInWeek => {
+    const startPointOfMonth: PersianDate = this.today.startOf('month').startOf('week').clone();
+    // const endPointOfMonth: PersianDate = this.today.endOf('month').endOf('week').clone();
+
+    let crawlPoint: PersianDate = startPointOfMonth.clone();
+    let daysInMonth: DaysInWeek = [];
+    for (let j = 0; j < 7; j++) {
+      for (let index = 0; index < 7; index++) {
+        crawlPoint = crawlPoint.add('days' as never, 1).clone();
+        daysInMonth = daysInMonth.concat(crawlPoint);
+      }
+    }
+
     return daysInMonth;
   };
 }
