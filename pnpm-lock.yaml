@@ -68,6 +68,18 @@ dependencies:
   '@formatjs/intl-segmenter':
     specifier: 11.5.5
     version: 11.5.5
+  '@fullcalendar/core':
+    specifier: 6.1.11
+    version: 6.1.11
+  '@fullcalendar/daygrid':
+    specifier: 6.1.11
+    version: 6.1.11(@fullcalendar/core@6.1.11)
+  '@fullcalendar/luxon3':
+    specifier: 6.1.11
+    version: 6.1.11(@fullcalendar/core@6.1.11)(luxon@3.4.4)
+  '@fullcalendar/react':
+    specifier: 6.1.11
+    version: 6.1.11(@fullcalendar/core@6.1.11)(react-dom@18.2.0)(react@18.2.0)
   '@ionic/core':
     specifier: 7.7.2
     version: 7.7.2
@@ -110,6 +122,9 @@ dependencies:
   native-run:
     specifier: 2.0.1
     version: 2.0.1
+  persian-date:
+    specifier: 1.1.0
+    version: 1.1.0
   pullstate:
     specifier: 1.25.0
     version: 1.25.0(react@18.2.0)
@@ -2192,6 +2207,42 @@ packages:
       '@formatjs/ecma402-abstract': 1.18.2
       '@formatjs/intl-localematcher': 0.5.4
       tslib: 2.6.2
+    dev: false
+
+  /@fullcalendar/core@6.1.11:
+    resolution: {integrity: sha512-TjG7c8sUz+Vkui2FyCNJ+xqyu0nq653Ibe99A66LoW95oBo6tVhhKIaG1Wh0GVKymYiqAQN/OEdYTuj4ay27kA==}
+    dependencies:
+      preact: 10.12.1
+    dev: false
+
+  /@fullcalendar/daygrid@6.1.11(@fullcalendar/core@6.1.11):
+    resolution: {integrity: sha512-hF5jJB7cgUIxWD5MVjj8IU407HISyLu7BWXcEIuTytkfr8oolOXeCazqnnjmRbnFOncoJQVstTtq6SIhaT32Xg==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.11
+    dependencies:
+      '@fullcalendar/core': 6.1.11
+    dev: false
+
+  /@fullcalendar/luxon3@6.1.11(@fullcalendar/core@6.1.11)(luxon@3.4.4):
+    resolution: {integrity: sha512-8L4gHMxFDtwKdToZxArtZu3LOew4rIFvHe+1yMOUv7Zv8BxTy/datK1YUQmUt+mwjneQbYJ1Rz6W4/GQuaxC9Q==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.11
+      luxon: ^3.0.0
+    dependencies:
+      '@fullcalendar/core': 6.1.11
+      luxon: 3.4.4
+    dev: false
+
+  /@fullcalendar/react@6.1.11(@fullcalendar/core@6.1.11)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Og0Tv0OiglTFp+b++yRyEhAeWnAmKkMLQ3iS0eJE1KDEov6QqGkoO+dUG4x8zp2w55IJqzik/a9iHi0s3oQDbA==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.11
+      react: ^16.7.0 || ^17 || ^18
+      react-dom: ^16.7.0 || ^17 || ^18
+    dependencies:
+      '@fullcalendar/core': 6.1.11
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
@@ -8617,6 +8668,10 @@ packages:
     resolution: {integrity: sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==}
     dev: true
 
+  /persian-date@1.1.0:
+    resolution: {integrity: sha512-YwV3703jLTTJFFQfP3RvMfvKZc5Z1yE++Deywox+hkVLuVN81VsTaZFma9k5P9SgfSUvXjiylbQVuf4YYLGOow==}
+    dev: false
+
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -8695,6 +8750,10 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
+
+  /preact@10.12.1:
+    resolution: {integrity: sha512-l8386ixSsBdbreOAkqtrwqHwdvR35ID8c3rKPa8lCWuO86dBi32QWHV4vfsZK1utLLFMvw+Z5Ad4XLkZzchscg==}
+    dev: false
 
   /prebuild-install@7.1.1:
     resolution: {integrity: sha512-jAXscXWMcCK8GgCoHOfIr0ODh5ai8mj63L2nWrjuAgXE6tDyYGnx4/8o/rCgU+B4JSyZBKbeZqzhtwtC3ovxjw==}
