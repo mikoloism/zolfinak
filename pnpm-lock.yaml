@@ -89,6 +89,9 @@ dependencies:
   core-js:
     specifier: 3.36.0
     version: 3.36.0
+  dayjs:
+    specifier: 1.11.10
+    version: 1.11.10
   i18next:
     specifier: 23.8.3
     version: 23.8.3
@@ -98,6 +101,9 @@ dependencies:
   iso-639-1:
     specifier: 3.1.2
     version: 3.1.2
+  jalaliday:
+    specifier: 2.3.0
+    version: 2.3.0
   native-run:
     specifier: 2.0.1
     version: 2.0.1
@@ -4947,7 +4953,6 @@ packages:
 
   /dayjs@1.11.10:
     resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
-    dev: true
 
   /debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -7303,6 +7308,10 @@ packages:
 
   /jalaali-js@1.2.6:
     resolution: {integrity: sha512-io974va+Qyu+UfuVX3UIAgJlxLhAMx9Y8VMfh+IG00Js7hXQo1qNQuwSiSa0xxco0SVgx5HWNkaiCcV+aZ8WPw==}
+    dev: false
+
+  /jalaliday@2.3.0:
+    resolution: {integrity: sha512-B/m3TqsRrTFED/HBDqON6rPKe0MpoLxNICZ5uZeZ/scHJUHKQNr1n+wdZSj8MxrY1Bmo05gllZeNEw4beXd2oQ==}
     dev: false
 
   /jest-diff@29.7.0:
