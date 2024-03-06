@@ -1,17 +1,8 @@
-import type { Interval } from 'luxon';
-
+import { dayjs, type Dayjs } from 'lib/date/mod';
 import { globalSetting } from 'lib/settings/global';
-import type PersianDate from 'persian-date';
-import { GregorianCalendar } from './gregorian';
-import { PersianCalendar } from './persian';
+import { generateMonthView } from './generator';
 
-export type DaysInMonth = Array<Interval<boolean>>;
-export type DaysInWeek = PersianDate[];
-export type WeeksInMonth = DaysInWeek[];
-export interface CalendarSystem {
-  today: PersianDate;
-  generate: () => DaysInWeek;
-}
+export type DaysInMonth = Dayjs[];
 
 enum Calendar {
   GREGORIAN = 'gregory',
@@ -21,20 +12,12 @@ enum Calendar {
 }
 
 namespace Calendar {
-  export function generateOf(today?: Date): DaysInWeek {
-    let calendar: CalendarSystem;
-    switch (globalSetting.calendarType.get()) {
-      case Calendar.GREGORIAN:
-        calendar = new GregorianCalendar(today);
-        break;
+  export function generateOf(today?: Date): DaysInMonth {
+    const localeName = globalSetting.languageCode.get();
+    const calendarType = globalSetting.calendarType.get();
 
-      case Calendar.PERSIAN:
-      default:
-        calendar = new PersianCalendar(today);
-        break;
-    }
-
-    return calendar.generate();
+    const date = dayjs(today).calendar(calendarType).locale(localeName);
+    return generateMonthView(date);
   }
 }
 
