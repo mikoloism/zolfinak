@@ -107,9 +107,6 @@ dependencies:
   native-run:
     specifier: 2.0.1
     version: 2.0.1
-  persian-date:
-    specifier: 1.1.0
-    version: 1.1.0
   pullstate:
     specifier: 1.25.0
     version: 1.25.0(react@18.2.0)
@@ -122,9 +119,6 @@ dependencies:
   react-i18next:
     specifier: 14.0.5
     version: 14.0.5(i18next@23.8.3)(react-dom@18.2.0)(react@18.2.0)
-  react-modern-calendar-datepicker:
-    specifier: 3.1.6
-    version: 3.1.6(react-dom@18.2.0)(react@18.2.0)
   react-router:
     specifier: 5.3.4
     version: 5.3.4(react@18.2.0)
@@ -7306,10 +7300,6 @@ packages:
       set-function-name: 2.0.2
     dev: true
 
-  /jalaali-js@1.2.6:
-    resolution: {integrity: sha512-io974va+Qyu+UfuVX3UIAgJlxLhAMx9Y8VMfh+IG00Js7hXQo1qNQuwSiSa0xxco0SVgx5HWNkaiCcV+aZ8WPw==}
-    dev: false
-
   /jalaliday@2.3.0:
     resolution: {integrity: sha512-B/m3TqsRrTFED/HBDqON6rPKe0MpoLxNICZ5uZeZ/scHJUHKQNr1n+wdZSj8MxrY1Bmo05gllZeNEw4beXd2oQ==}
     dev: false
@@ -8597,10 +8587,6 @@ packages:
     resolution: {integrity: sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==}
     dev: true
 
-  /persian-date@1.1.0:
-    resolution: {integrity: sha512-YwV3703jLTTJFFQfP3RvMfvKZc5Z1yE++Deywox+hkVLuVN81VsTaZFma9k5P9SgfSUvXjiylbQVuf4YYLGOow==}
-    dev: false
-
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -8910,17 +8896,6 @@ packages:
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
-
-  /react-modern-calendar-datepicker@3.1.6(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-lnMqEMj9Wn32/sm119tjCl5lOkq4u9vJE7wggi7hdXV4s8rPdKlH56FVVehlBi0dfYeWQVZ9npY384Zprjn4WA==}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-    dependencies:
-      jalaali-js: 1.2.6
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
 
   /react-refresh@0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
