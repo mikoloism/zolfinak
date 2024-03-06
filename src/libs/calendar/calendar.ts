@@ -15,18 +15,9 @@ export interface CalendarSystem {
 
 enum Calendar {
   GREGORIAN = 'gregory',
-  BUDDHIST = 'buddhist',
-  CHINESE = 'chinese',
-  COPTIC = 'coptic',
-  ETHIOAA = 'ethioaa',
-  ETHIOPIC = 'ethiopic',
-  HEBREW = 'hebrew',
-  INDIAN = 'indian',
-  ISLAMIC = 'islamic',
-  JAPANESE = 'japanese',
-  PERSIAN = 'persian',
+  JALALI = 'jalali',
   // eslint-disable-next-line ts/prefer-literal-enum-member
-  DEFAULT = PERSIAN,
+  PERSIAN = JALALI,
 }
 
 namespace Calendar {
