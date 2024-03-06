@@ -4,10 +4,12 @@ export interface SettingReason<T> {
 }
 
 export abstract class IndividualSetting<T> implements SettingReason<T> {
+  public abstract readonly DEFAULT_VALUE: T;
+
   public constructor(protected _value?: T) {}
 
-  public get = (): T | undefined => {
-    return this._value;
+  public get = (): T => {
+    return this._value ?? this.DEFAULT_VALUE;
   };
 
   public update = (value: T): void => {
