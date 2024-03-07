@@ -5,7 +5,7 @@ import React from 'react';
 
 /* Relative Imports */
 import { AppRouter } from './App.router';
-import { I18nextProvider, initializeLanguageSettings } from './libs/i18n/mod';
+import { I18nextProvider, initializeLanguageSettings } from 'lib/i18n/mod';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -24,12 +24,12 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 
 /* Theme variables */
-import { initilizeThemeSettings } from './libs/themes/mod';
+import { initializeThemeSettings } from 'lib/themes/mod';
 import './theme/variables.css';
 
 setupIonicReact();
 void initializeLanguageSettings();
-void initilizeThemeSettings();
+void initializeThemeSettings();
 
 const App: React.FC = () => {
   return (

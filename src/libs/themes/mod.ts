@@ -1,6 +1,6 @@
 import { StatusBar, Style } from '@capacitor/status-bar';
 
-export function initilizeThemeSettings(): void {
+export function initializeThemeSettings(): void {
   if (typeof window === 'undefined') return;
 
   const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
