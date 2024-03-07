@@ -1,5 +1,7 @@
 import type { Dayjs } from 'lib/date/mod';
 
+export type DaysInMonth = Dayjs[];
+
 function month_view(date: Dayjs, startDayOfWeek: number = 0): Dayjs[] {
   const clonedDate = date.clone();
   const startPointOfMonth = clonedDate.startOf('months').startOf('weeks').startOf('days');

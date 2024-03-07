@@ -1,8 +1,6 @@
-import { dayjs, type Dayjs } from 'lib/date/mod';
+import { dayjs } from 'lib/date/mod';
 import { globalSetting } from 'lib/settings/global';
-import { generateMonthView } from './generator';
-
-export type DaysInMonth = Dayjs[];
+import { generateMonthView, type DaysInMonth } from './generator';
 
 enum Calendar {
   GREGORIAN = 'gregory',
