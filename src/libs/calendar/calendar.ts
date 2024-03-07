@@ -5,11 +5,12 @@ import { generateMonthView, type DaysInMonth } from './generator';
 enum Calendar {
   GREGORIAN = 'gregory',
   JALALI = 'jalali',
-  // eslint-disable-next-line ts/prefer-literal-enum-member
-  PERSIAN = JALALI,
 }
 
 namespace Calendar {
+  export const PERSIAN: Calendar = Calendar.JALALI;
+  export const DEFAULT: Calendar = Calendar.JALALI;
+
   export function generateOf(today?: Date): DaysInMonth {
     const localeName = globalSetting.languageCode.get();
     const calendarType = globalSetting.calendarType.get();
