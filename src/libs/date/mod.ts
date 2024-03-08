@@ -23,4 +23,5 @@ dayjs.extend(weekday);
 dayjs.extend(jalaliday);
 
 export type { Dayjs, FormatObject } from 'dayjs';
+export * from './utils';
 export { dayjs };
