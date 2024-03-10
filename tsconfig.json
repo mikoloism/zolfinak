@@ -17,9 +17,9 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
       "lib/*": ["src/libs/*"],
-      "libs/*": ["src/libs/*"]
+      "libs/*": ["src/libs/*"],
+      "@/*": ["src/*", "!src/lib/*"]
     },
     "types": ["vite/client", "vitest/globals"]
   },

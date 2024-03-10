@@ -17,9 +17,9 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   resolve: {
     alias: {
-      '@/': `${path.resolve(__dirname, 'src')}/`,
       'lib/': `${path.resolve(__dirname, 'src', 'libs')}/`,
       'libs/': `${path.resolve(__dirname, 'src', 'libs')}/`,
+      '@/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
 
