@@ -3,16 +3,19 @@ import { languageOutline } from 'ionicons/icons';
 import { withTranslation, type WithTranslation } from 'react-i18next';
 import { I18nScope, LanguageName, changeLanguage } from '../i18n/mod';
 import { SelectOption } from './Option';
+import { globalSetting } from './global';
 
 function LanguageSelection({ t, i18n }: WithTranslation): JSX.Element {
   return (
     <IonItem>
-      <IonIcon slot="start" icon={languageOutline} />
+      <IonIcon icon={languageOutline} slot="start" />
       <IonSelect
         label={t('language_label')}
         labelPlacement="start"
+        onIonChange={(event) => // void changeLanguage(event.target.value as string)
+          globalSetting.language.update(event.target.value as string)
+        }
         value={i18n.language}
-        onIonChange={(event) => changeLanguage(event.target.value)}
       >
         <SelectOption lang={LanguageName.ENGLISH} />
         <SelectOption lang={LanguageName.PERSIAN} />

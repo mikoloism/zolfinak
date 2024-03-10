@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { createElement, type PropsWithChildren } from 'react';
 import { initReactI18next, I18nextProvider as RealI18nextProvider } from 'react-i18next';
-import { DEFAULT_LANG_NAME, LanguageName } from './languages';
+import { LanguageName } from './languages';
 import { LocaleMap as resources, type LocaleMap } from './localizations';
 import { DEFAULT_I18N_NAMESPACE, I18nNSList } from './token';
 
@@ -11,12 +11,12 @@ declare module 'i18next' {
   }
 }
 
-i18n.use(initReactI18next).init({
+void i18n.use(initReactI18next).init({
   resources,
   ns: I18nNSList,
   defaultNS: DEFAULT_I18N_NAMESPACE,
-  lng: DEFAULT_LANG_NAME,
-  fallbackLng: DEFAULT_LANG_NAME,
+  lng: LanguageName.DEFAULT,
+  fallbackLng: LanguageName.DEFAULT,
   supportedLngs: [LanguageName.ENGLISH, LanguageName.PERSIAN],
 });
 

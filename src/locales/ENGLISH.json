@@ -16,7 +16,15 @@
     "title": "Settings",
     "about_link_text": "About",
     "language_label": "Language",
-    "change_language_toast": "Setup {{lang}} language."
+    "change_language_toast": "Setup {{lang}} language.",
+    "first_day_of_week": "First day of week",
+    "calendar_sunday": "SUNDAY",
+    "calendar_monday": "MONDAY",
+    "calendar_tuesday": "TUESDAY",
+    "calendar_wednesday": "WEDNESDAY",
+    "calendar_thursday": "THURSDAY",
+    "calendar_friday": "FRIDAY",
+    "calendar_saturday": "SATURDAY"
   },
   "daily": {
     "picker_confirm_button": "Confirm",

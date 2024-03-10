@@ -1,5 +1,4 @@
 import { IonButton, IonButtons, IonHeader, IonIcon, IonLabel, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
-import * as date from 'date-fns';
 import {
   archiveOutline,
   basketOutline,
@@ -12,10 +11,12 @@ import {
 } from 'ionicons/icons';
 import { Trans, type WithTranslation } from 'react-i18next';
 import { styled } from 'styled-components';
+
+import { dayjs } from 'lib/date/mod';
+import { I18nScope } from 'lib/i18n/mod';
+import { Roller, withIonPageLayout, withPage, withTranslation } from 'lib/roll/mod';
 import { HubSpokeGrid } from '../components/HubSpokeGrid';
 import { HubSpokeItem } from '../components/HubSpokeItem';
-import { I18nScope, getLocaleCode, i18n } from '../libs/i18n/mod';
-import { Roller, withIonPageLayout, withPage, withTranslation } from '../libs/roll/mod';
 
 const HubSpokeTitle = styled.div`
   display: flex;
@@ -44,6 +45,7 @@ const HomeToolbar = (): JSX.Element => (
   <IonToolbar>
     <IonButtons slot="end">
       <IonButton
+        color="light"
         style={{
           backgroundColor: 'white',
           borderRadius: '4pt',
@@ -51,17 +53,12 @@ const HomeToolbar = (): JSX.Element => (
           height: '2em',
           margin: '1em 1em',
         }}
-        color="light"
       >
-        <IonIcon size="small" icon={personOutline} />
+        <IonIcon icon={personOutline} size="small" />
       </IonButton>
     </IonButtons>
     <IonTitle>
-      {date.intlFormat(
-        new Date(),
-        { day: '2-digit', month: 'short', weekday: 'long', year: 'numeric' },
-        { locale: getLocaleCode(i18n.language) },
-      )}
+      {dayjs().format('YYYY / MM / DD dd')}
     </IonTitle>
   </IonToolbar>
 );

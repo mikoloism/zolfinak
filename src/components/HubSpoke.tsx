@@ -21,32 +21,32 @@ export function HubSpoke(): JSX.Element {
   return (
     <IonGrid>
       <IonRow>
-        <IonCol size="4" size-md="2" size-lg="2">
+        <IonCol size="4" size-lg="2" size-md="2">
           <HubSpokeItem href="/settings" img="https://ionicframework.com/docs/img/demos/thumbnail.svg">
             Settings
           </HubSpokeItem>
         </IonCol>
-        <IonCol size="4" size-md="2" size-lg="2">
+        <IonCol size="4" size-lg="2" size-md="2">
           <HubSpokeItem href="/settings" img="https://ionicframework.com/docs/img/demos/thumbnail.svg">
             Settings
           </HubSpokeItem>
         </IonCol>
-        <IonCol size="4" size-md="2" size-lg="2">
+        <IonCol size="4" size-lg="2" size-md="2">
           <HubSpokeItem href="/settings" img="https://ionicframework.com/docs/img/demos/thumbnail.svg">
             Settings
           </HubSpokeItem>
         </IonCol>
-        <IonCol size="4" size-md="2" size-lg="2">
+        <IonCol size="4" size-lg="2" size-md="2">
           <HubSpokeItem href="/settings" img="https://ionicframework.com/docs/img/demos/thumbnail.svg">
             Settings
           </HubSpokeItem>
         </IonCol>
-        <IonCol size="4" size-md="2" size-lg="2">
+        <IonCol size="4" size-lg="2" size-md="2">
           <HubSpokeItem href="/settings" img="https://ionicframework.com/docs/img/demos/thumbnail.svg">
             Settings
           </HubSpokeItem>
         </IonCol>
-        <IonCol size="4" size-md="2" size-lg="2">
+        <IonCol size="4" size-lg="2" size-md="2">
           <HubSpokeItem href="/settings" img="https://ionicframework.com/docs/img/demos/thumbnail.svg">
             Settings
           </HubSpokeItem>

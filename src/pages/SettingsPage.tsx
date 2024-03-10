@@ -14,8 +14,10 @@ import {
 import { informationCircleOutline } from 'ionicons/icons';
 import React from 'react';
 import { withTranslation, type WithTranslation } from 'react-i18next';
-import { I18nScope } from '../libs/i18n/mod';
-import { SettingsLanguageSelection } from '../libs/settings/mod';
+
+import { I18nScope } from 'lib/i18n/mod';
+import { SettingsCalendarType } from 'lib/settings/components/CalendarType';
+import { SettingsFirstDayOfWeek, SettingsLanguageSelection } from 'lib/settings/mod';
 
 const SettingsPage: React.FC<WithTranslation> = ({ t }) => (
   <IonPage>
@@ -32,8 +34,10 @@ const SettingsPage: React.FC<WithTranslation> = ({ t }) => (
       </IonHeader>
       <IonList>
         <SettingsLanguageSelection />
+        <SettingsFirstDayOfWeek />
+        <SettingsCalendarType />
         <IonItem routerLink="/settings/about">
-          <IonIcon slot="start" icon={informationCircleOutline} />
+          <IonIcon icon={informationCircleOutline} slot="start" />
           <IonText>{t('about_link_text')}</IonText>
         </IonItem>
         <SettingsBuildInformation />
@@ -45,8 +49,8 @@ const SettingsPage: React.FC<WithTranslation> = ({ t }) => (
 function SettingsBuildInformation() {
   const [device, setDeviceInfo] = React.useState<DeviceInfo>();
 
-  React.useEffect(function onMount() {
-    Device.getInfo().then(function subscribeInfo(deviceInfo) {
+  React.useEffect(() => {
+    void Device.getInfo().then((deviceInfo) => {
       setDeviceInfo(() => deviceInfo);
     });
   }, []);

@@ -1,3 +1,4 @@
+// eslint-disable-next-line ts/consistent-type-definitions
 export type I18nToken = {
   home: {
     hero_title: string;

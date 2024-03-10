@@ -16,7 +16,15 @@
     "title": "تنظیمات",
     "about_link_text": "درباره ما",
     "language_label": "زبان‌ها",
-    "change_language_toast": "زبان به {{lang}} تغییر یافت."
+    "change_language_toast": "زبان به {{lang}} تغییر یافت.",
+    "first_day_of_week": "اولین روز هفته",
+    "calendar_sunday": "یکشنبه",
+    "calendar_monday": "دوشنبه",
+    "calendar_tuesday": "سه‌شنبه",
+    "calendar_wednesday": "چهارشنبه",
+    "calendar_thursday": "پنجشنبه",
+    "calendar_friday": "جمعه",
+    "calendar_saturday": "شنبه"
   },
   "daily": {
     "picker_confirm_button": "ذخیره",

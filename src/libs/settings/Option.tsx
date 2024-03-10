@@ -8,6 +8,6 @@ export const SelectOption: React.FC<Props> = ({ lang }) => (
   </IonSelectOption>
 );
 
-type Props = {
+interface Props {
   lang: LanguageName;
-};
+}
