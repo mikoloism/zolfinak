@@ -1,24 +1,27 @@
-import { IndividualSetting } from 'lib/settings/base';
-import { getLocaleCode } from './helpers';
+import { Setting } from 'lib/settings/mod';
+import { changeLanguage, initializeLanguageSettings } from './helpers';
 import { LanguageName } from './languages';
 
-class Setting extends IndividualSetting<string> {
+class LanguageCode extends Setting<LanguageName> {
   public constructor() {
     super();
   }
 
-  public override get = (): string => {
-    return getLocaleCode(this._value as LanguageName);
+  public override get = (): LanguageName => {
+    return this._value!;
   };
 
-  public override update = (value: string): void => {
-    this._value = value;
+  public override update = (value: string | LanguageName): void => {
+    const lang = LanguageName.resolve(value);
+    this._value = lang;
+    void changeLanguage(lang);
   };
 
   public override init() {
-    super.init();
-    this.update(LanguageName.DEFAULT);
+    initializeLanguageSettings().then((langtag) => {
+      this.update(langtag);
+    });
   }
 }
 
-export { Setting as LanguageCodeSetting };
+export { LanguageCode };

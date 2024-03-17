@@ -7,19 +7,21 @@ import { I18nScope } from './token';
 
 export const LANGUAGE_STORAGE_KEY = 'z-language';
 
-export async function initializeLanguageSettings(): Promise<void> {
+export async function initializeLanguageSettings(): Promise<string> {
   const last_lang = await getLastLang();
   if (last_lang) {
     void changeLanguageSilent(last_lang);
-    return;
+    return last_lang;
   }
 
   const sys_lang = await getSystemLang();
   if (typeof sys_lang !== 'undefined') {
-    return changeLanguage(sys_lang);
+    void changeLanguage(sys_lang);
+    return sys_lang;
   }
 
-  return changeLanguage(LanguageName.DEFAULT);
+  void changeLanguage(LanguageName.DEFAULT);
+  return LanguageName.DEFAULT;
 }
 
 export async function getSystemLang(): Promise<string | void> {
@@ -95,4 +97,19 @@ export async function updateTextDirection(lang: LanguageName): Promise<void> {
     document.body.setAttribute('data-dir', dir);
     document.body.setAttribute('aria-direction', dir);
   }
+}
+
+export function getMonthNames(
+  langtag: string | LanguageName,
+  month: 'numeric' | '2-digit' | 'long' | 'short' | 'narrow' = 'long',
+) {
+  const lang = LanguageName.resolve(langtag);
+  const locale = getLocaleCode(lang);
+  const formatMonthName = new Intl.DateTimeFormat(locale, { month }).format;
+  return Array.from({ length: 12 }, (_, month_index) => {
+    const real_month_index = (month_index + 1) % 12;
+    const date = new Date();
+    date.setMonth(real_month_index);
+    return formatMonthName(new Date(date.toUTCString()));
+  });
 }

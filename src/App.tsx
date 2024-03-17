@@ -29,7 +29,6 @@ import { initializeThemeSettings } from 'lib/themes/mod';
 import './theme/variables.css';
 
 setupIonicReact();
-void initializeLanguageSettings();
 void initializeThemeSettings();
 void initializeGlobalSetting();
 
