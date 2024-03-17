@@ -1,16 +1,18 @@
-import { CalendarTypeSetting, FirstDayOfWeekSetting } from 'lib/calendar/setting';
-import { LanguageCodeSetting } from 'lib/i18n/setting';
+import { LanguageCode } from 'lib/i18n/setting';
+import { Singletor } from 'lib/singletor/singletor';
+import { CalendarType } from './setting/CalendarType';
+import { FirstDayOfWeek } from './setting/FirstDayOfWeek';
 
 export interface GlobalSetting {
-  readonly language: LanguageCodeSetting;
-  readonly calendar: CalendarTypeSetting;
-  readonly firstDayOfWeek: FirstDayOfWeekSetting;
+  readonly language: LanguageCode;
+  readonly calendar: CalendarType;
+  readonly firstDayOfWeek: FirstDayOfWeek;
 }
 
 export const globalSetting: GlobalSetting = {
-  language: new LanguageCodeSetting(),
-  calendar: new CalendarTypeSetting(),
-  firstDayOfWeek: new FirstDayOfWeekSetting(),
+  language: Singletor.from<LanguageCode>(LanguageCode),
+  calendar: Singletor.from<CalendarType>(CalendarType),
+  firstDayOfWeek: Singletor.from<FirstDayOfWeek>(FirstDayOfWeek),
 };
 
 export async function initializeGlobalSetting() {
