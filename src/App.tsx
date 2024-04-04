@@ -1,12 +1,12 @@
-import { IonApp, IonIcon, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, IonTabs, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { albumsOutline, appsOutline, settingsOutline } from 'ionicons/icons';
 import React from 'react';
 
 /* Relative Imports */
 import { initializeGlobalSetting } from 'lib/settings/global';
 import { AppRouter } from './App.router';
 import { I18nextProvider, initializeLanguageSettings } from 'lib/i18n/mod';
+import { AppNavigation } from 'lib/navigation/mod';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -41,17 +41,7 @@ const App: React.FC = () => {
             <IonRouterOutlet>
               <AppRouter />
             </IonRouterOutlet>
-            <IonTabBar dir="ltr" slot="bottom">
-              <IonTabButton href="/home" tab="home">
-                <IonIcon aria-hidden="true" icon={appsOutline} />
-              </IonTabButton>
-              <IonTabButton href="/daily" tab="daily">
-                <IonIcon aria-hidden="true" icon={albumsOutline} />
-              </IonTabButton>
-              <IonTabButton href="/settings" tab="settings">
-                <IonIcon aria-hidden="true" icon={settingsOutline} />
-              </IonTabButton>
-            </IonTabBar>
+            <AppNavigation />
           </IonTabs>
         </IonReactRouter>
       </I18nextProvider>
