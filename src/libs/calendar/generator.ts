@@ -9,11 +9,11 @@ function month_view(date: Dayjs, startDayOfWeek: WeekDay = WeekDay.DEFAULT): Day
   const endPointOfMonth: Dayjs = clonedDate.endOf('months').endOf('weeks').startOf('days');
   const firstDayOfWeek: number = (((startDayOfWeek - startPointOfMonth.day()) as unknown as number) + 7) % 7;
 
-  let crawlPoint: Dayjs = startPointOfMonth.subtract(firstDayOfWeek, 'days');
+  let crawlPoint: Dayjs = startPointOfMonth; // subtract(firstDayOfWeek, 'days');
   let daysOfMonth: Dayjs[] = [];
   while (endPointOfMonth.isSame(crawlPoint) === false) {
-    crawlPoint = crawlPoint.clone().add(1, 'day');
     daysOfMonth = daysOfMonth.concat(crawlPoint);
+    crawlPoint = crawlPoint.clone().add(1, 'days');
   }
 
   return daysOfMonth;

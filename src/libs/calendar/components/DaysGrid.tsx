@@ -1,9 +1,11 @@
 import { Calendar } from 'lib/calendar/calendar';
 import { Day } from './Day';
 import { DaysGrid } from './DaysGrid.styled';
+import { todayStore } from '../store';
 
 export function DaysGridView() {
-  const weeksInMonth = Calendar.generateOf();
+  const today = todayStore.get();
+  const weeksInMonth = Calendar.generateOf(today);
 
   return (
     <DaysGrid>

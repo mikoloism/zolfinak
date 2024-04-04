@@ -8,17 +8,20 @@ export const DayButton = styled.button.attrs({
 export const DayContent = styled.time.attrs<{
   $isToday?: boolean;
   $isWeekend?: boolean;
-  isHolyday?: boolean;
+  $isHolyday?: boolean;
+  $isInSameMonth?: boolean;
 }>((p) => ({
   className: classNames([
     {
-      'text-rose-400': p.isHolyday,
-      'text-orange-300': Boolean(p.$isWeekend),
-      'border border-(3 green-300 rounded-16) text-green-300 font-800 hover:(bg-green-300 text-green-800)': Boolean(
+      'border-rose-400': p.$isHolyday,
+      'border-orange-300': Boolean(p.$isWeekend),
+      'border border-(green-300 rounded-16) text-green-300 font-800 hover:(bg-green-300 text-green-800)': Boolean(
         p.$isToday,
       ),
+      'border-sky-200': p.$isInSameMonth,
+      'border-transparent': !p.$isInSameMonth && !p.$isWeekend,
     },
-    'border-rounded transition text-size-sm p-4 text-center',
-    'hover:(bg-blue-200 text-blue-900)',
+    'transition text-size-sm p-4 text-center',
+    'border border-(2 rounded-2) hover:border-pink-300',
   ]),
 }))``;

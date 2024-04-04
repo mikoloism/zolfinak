@@ -16,7 +16,7 @@ namespace Calendar {
     const localeName = globalSetting.language.get();
     const calendarType = globalSetting.calendar.get();
     const firstDayOfWeek = globalSetting.firstDayOfWeek.get();
-    const date = dayjs(today).calendar(calendarType).locale(localeName).tz(TimeZone['Asia/Tehran']);
+    const date = dayjs(today).tz(TimeZone['Asia/Tehran']).locale(localeName).calendar(calendarType);
     return generateMonthView(date, firstDayOfWeek);
   }
 }
