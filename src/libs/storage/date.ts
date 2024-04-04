@@ -1,9 +1,9 @@
-import { type IntlFormatFormatOptions, intlFormat } from 'date-fns';
+import { dayjs } from 'lib/date/mod';
 import { Store as PullstateStore } from 'pullstate';
 import { getLocaleCode } from '../i18n/helpers';
 import { i18n } from '../i18n/i18n';
 
-const FULL_DATE_FORMAT: IntlFormatFormatOptions = {
+const FULL_DATE_FORMAT = {
   day: '2-digit',
   month: 'short',
   weekday: 'long',
@@ -16,9 +16,10 @@ const dateStore = new PullstateStore<DateStore>(() => {
 
 function useDateStore(): UseDateStore {
   const stored_date = dateStore.useState(($) => $.date);
-  const formatted_date = intlFormat(stored_date, FULL_DATE_FORMAT, {
-    locale: getLocaleCode(i18n.language),
-  });
+  const formatted_date = dayjs().toISOString();
+  // const formatted_date = dayjs.format(stored_date, FULL_DATE_FORMAT, {
+  //   locale: getLocaleCode(i18n.language),
+  // });
 
   return {
     update: function update(newDate) {
